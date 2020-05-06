@@ -55,4 +55,18 @@ public class BowlingGameTest {
     private void rollStrike(){
         g.roll(10);
     }
+
+    @Test
+    public void testTwoStrikes(){
+        rollStrike();
+        rollStrike();
+        rollMany(0, 16);
+        assertEquals(30, g.score());
+    }
+
+    @Test
+    public void testPerfectGame(){
+        rollMany(12, 10);
+        assertEquals(300, g.score());
+    }
 }
